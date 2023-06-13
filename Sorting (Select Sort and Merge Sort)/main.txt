@@ -1,0 +1,63 @@
+package ssorting44;
+
+import java.util.Arrays;
+import java.util.Random;
+
+public class Test90 {
+    public static void main(String[] args) {
+    SSorting44 s = new SSorting44();
+    
+    //merge
+    System.out.println("For merge sort");
+    long start = System.currentTimeMillis();
+    int[] arr1= generateRandom(10000);
+    s.mergeSort(arr1);
+    long end = System.currentTimeMillis();
+    long TakenTime = end - start;
+    System.out.println("        ");
+    System.out.println("Time taken in milli second: " + TakenTime);
+    System.out.println(Arrays.toString(arr1));
+    System.out.println("        ");
+    System.out.println("    ");
+    System.out.println("Memory taken");
+    Runtime runtime = Runtime.getRuntime();
+    runtime.gc();
+    long memory = runtime.totalMemory()-
+    runtime.freeMemory();
+    System.out.println("used memory is kilobytes:"+(memory /1000));
+   
+   //select
+     SSorting44 s2 = new SSorting44();
+     System.out.println("For Select Sort: ");
+     long start2 = System.currentTimeMillis();
+     int [] arr2 = generateRandom(10000);
+     s2.selectsort(arr2);
+     long end2 = System.currentTimeMillis();
+     long TakenTime2 = end - start;
+     System.out.println("        ");
+     System.out.println("Time taken in milli second: " + TakenTime);
+     System.out.println(Arrays.toString(arr2));
+     Runtime runtime2 = Runtime.getRuntime();
+     runtime2.gc();
+     long memory2 = runtime2.totalMemory()-
+     runtime2.freeMemory();
+     System.out.println("Used memory is kilobytes:" +(memory2 /1000));
+     
+        
+        
+      
+        
+    }
+    static int[] generateRandom(int n){
+    Random r = new Random();
+    int[] x= new int[n];
+    for (int i = 0; i < x.length; i++) {
+       x[i]=(int)(Math.random()*1000);
+       }
+//    for(int i : x) {
+//			System.out.print(i+" ");
+//        }
+    return x;
+    
+} 
+}
